@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import urllib
+import sys
 from api.apidata.apiset import apiset
 
 __author__ = 'xujianbo'
@@ -12,6 +13,8 @@ import requests
 
 class SendHttpRequest:
     def __init__(self):
+        reload(sys)
+        sys.setdefaultencoding('utf-8')
         self.version_name = apiset().getConfigValues("version", "version_name")
         self.header = {
             "versionName": self.version_name

@@ -7,7 +7,7 @@ import json
 
 import xmltodict
 
-from api.apipub import pyapilog
+from api.apipub.PyApiLog import log
 
 
 # 解析json字符串
@@ -16,7 +16,7 @@ class jsonprase(object):
         try:
             self.json_value = json.loads(json_value)
         except ValueError, e:
-            pyapilog().error(e)
+            log().error(e)
 
     def find_json_node_by_xpath(self, xpath):
         elem = self.json_value
@@ -37,7 +37,7 @@ class jsonprase(object):
             root = {"root": self.json_value}
             xml = xmltodict.unparse(root, pretty=True)
         except ArithmeticError, e:
-            pyapilog().error(e)
+            log().error(e)
         return xml
 
 
