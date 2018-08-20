@@ -58,8 +58,10 @@ if __name__ == "__main__":
         if tag == "test" or tag == "online":
             Config().setScene(tag)
             Report().startAllCase()
-            print tag
         else:
-            raise Exception
+            print u"请指定正确的运行环境：test or online"
     except:
-        print u"请指定正确的运行环境：test or online"
+        # 没指定任何环境时默认在测试环境执行
+        tag = "test"
+        Config().setScene(tag)
+        Report().startAllCase()
