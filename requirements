@@ -1,0 +1,6 @@
+redis
+requests
+redis
+configparser
+pymysql
+pymssql
