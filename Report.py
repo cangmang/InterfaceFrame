@@ -30,8 +30,15 @@ class Report:
         Report_description = apiset().getConfigValues("report", "description")
         discover = unittest.defaultTestLoader.discover(case_path, pattern='test*.py',
                                                        top_level_dir=None)
-        filename = os.path.join(root_path, 'TestReport',
-                                (time.strftime('%Y-%m-%d %H_%M_%S', time.localtime(time.time())) + '.html'))
+        file_path = os.path.join(root_path, 'TestReport')
+        try:
+            os.mkdir(file_path)
+        except:
+            pass
+        finally:
+            filename = os.path.join(file_path,
+                                    (time.strftime('%Y-%m-%d %H_%M_%S', time.localtime(time.time())) + '.html'))
+
         fp = file(filename, 'wb')
         runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=Report_title,
                                                description=Report_description
