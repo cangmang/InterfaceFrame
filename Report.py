@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from api.apipub.Config import Config
-from api.apidata.apiset import apiset
 
 __author__ = 'xujianbo'
 __data__ = '2015-03-20'
@@ -11,6 +9,8 @@ import unittest
 import time
 import os
 import sys
+from api.apipub.Config import Config
+from api.apidata.apiset import apiset
 
 from api.apipub import HTMLTestRunner
 
@@ -51,6 +51,7 @@ if __name__ == "__main__":
         if tag == "test" or tag == "online":
             Config().setScene(tag)
             Report().startAllCase()
+            print tag
         else:
             raise Exception
     except:

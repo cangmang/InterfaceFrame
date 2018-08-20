@@ -23,7 +23,6 @@ def log(**kwargs):
     global loggers
     log_level = (int)(apiset().getConfigValues("log", "log_level"))
     log_path = os.path.join(os.path.dirname(root_dir) + "\\logs")
-    print log_path
     if os.path.exists(log_path):
         log_file = os.path.join(log_path, datetime.datetime.now().strftime('%Y-%m-%d_%H_%M') + '.log')
     else:
