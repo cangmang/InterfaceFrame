@@ -82,7 +82,6 @@ def sendEmail():
             smtp.sendmail(mail_user, email_to, msg.as_string())
             print 'email has send out !'
         except smtplib.SMTPAuthenticationError,e:
-            print "+++++++++"
             print e
         smtp.quit()
 
