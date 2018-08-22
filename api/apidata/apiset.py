@@ -15,12 +15,11 @@ from api.apipub.Config import Config
 class apiset:
     def __init__(self, path=None):
         if path == None:
-            path = os.path.dirname(__file__)
             scene = Config().getScene()
             if scene == 'test':
-                self.config_path = os.path.join(os.path.abspath(path) + "\\test\\config.ini")
+                self.config_path = Config().t_config_path
             elif scene == 'online':
-                self.config_path = os.path.join(os.path.abspath(path) + "\\online\\config.ini")
+                self.config_path = Config().o_config_path
             else:
                 assert "请指定运行环境：test or online"
         else:
@@ -44,5 +43,5 @@ class apiset:
         return self.config.items(section=section)
 
 
-        # if __name__ == "__main__":
-        # print apiset().getConfigItems("mysql_db")
+# if __name__ == "__main__":
+#     print apiset().getConfigItems("mysql_db")

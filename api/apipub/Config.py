@@ -6,10 +6,15 @@ import os
 import configparser
 
 
-
 class Config:
     def __init__(self):
-        pass
+        self.root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        self.log_path = os.path.join(self.root_path, "logs")
+        self.report_path = os.path.join(self.root_path, "TestReport")
+        self.evm_path = os.path.join(self.root_path, "api\\apidata\\evm.ini")
+        self.t_config_path = os.path.join(self.root_path, "api\\apidata\\test\\config.ini")
+        self.o_config_path = os.path.join(self.root_path, "api\\apidata\\test\\config.ini")
+        self.case_path = os.path.join(self.root_path, "TestCase")
 
     def getConfig(self, config_path):
         config = configparser.ConfigParser()
@@ -21,8 +26,7 @@ class Config:
         Jenkins持续集成时设置运行的环境
         @:param scene 运行的环境
         """
-        path = os.path.dirname(os.path.abspath(__file__))
-        config_path = os.path.join(os.path.dirname(path) + "\\apidata\\evm.ini")
+        config_path = os.path.join(self.evm_path)
         config = self.getConfig(config_path)
         config.set("environment", "scene", scene)
         config.write(open(config_path, "r+"))
@@ -32,9 +36,9 @@ class Config:
         Jenkins持续集成时获取运行的环境
         @:param scene 运行的环境
         """
-        path = os.path.dirname(os.path.abspath(__file__))
-        config = self.getConfig(os.path.join(os.path.dirname(path) + "\\apidata\\evm.ini"))
+        config = self.getConfig(self.evm_path)
         return config.get("environment", "scene")
 
-# if __name__ == "__main__":
-        # Config().setScene("1211")
+
+if __name__ == "__main__":
+    print Config().o_config_path

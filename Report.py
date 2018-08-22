@@ -14,8 +14,6 @@ from api.apidata.apiset import apiset
 
 from api.apipub import HTMLTestRunner
 
-root_path = os.path.dirname(os.path.abspath(__file__))
-case_path = os.path.join(root_path + '\\TestCase')
 
 
 class Report:
@@ -28,9 +26,9 @@ class Report:
         """
         Report_title = apiset().getConfigValues("report", "title")
         Report_description = apiset().getConfigValues("report", "description")
-        discover = unittest.defaultTestLoader.discover(case_path, pattern='test*.py',
+        discover = unittest.defaultTestLoader.discover(Config().case_path, pattern='test*.py',
                                                        top_level_dir=None)
-        file_path = os.path.join(root_path, 'TestReport')
+        file_path = Config().report_path
         try:
             os.mkdir(file_path)
         except:

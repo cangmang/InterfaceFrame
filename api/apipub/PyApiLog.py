@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from api.apipub.Config import Config
+
 __author__ = 'xujianbo'
 __data__ = '2018-03-20'
 """
@@ -16,13 +18,12 @@ logLevel = {
     5: logging.ERROR,
     6: logging.CRITICAL
 }
-root_dir = os.path.dirname(os.path.dirname(__file__))
 loggers = {}
 # 定义日志方法,从配置文件读取日志等级,且定义日志输出路径
 def log(**kwargs):
     global loggers
     log_level = (int)(apiset().getConfigValues("log", "log_level"))
-    log_path = os.path.join(os.path.dirname(root_dir) + "\\logs")
+    log_path = Config().log_path
     if os.path.exists(log_path):
         log_file = os.path.join(log_path, datetime.datetime.now().strftime('%Y-%m-%d_%H_%M') + '.log')
     else:

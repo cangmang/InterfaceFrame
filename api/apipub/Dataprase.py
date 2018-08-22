@@ -60,51 +60,63 @@ class xmlprase(object):
         return json_str
 
 
-
 class jsonAssert:
-
-    # 对json字符串深度断言
+    # 对json字符串深度断言----比较两个json字符串是否完全相同，并返回不相同的部分
     def compareJsonData(self, json1, json2, L=[], xpath='json1'):
+        if xpath == "json1":
+            self.standard = "json1"
+            self.standard1 = "json2"
+        elif xpath == "json2":
+            self.standard = "json2"
+            self.standard1 = "json1"
         if isinstance(json1, list) and isinstance(json2, list):
             for i in range(len(json1)):
                 try:
                     self.compareJsonData(json1[i], json2[i], L, xpath + '[%s]' % str(i))
                 except:
-                    L.append('%s中的key：%s未在json2中对应位置找到\n' % (xpath, i))
+                    L.append('%s中%s[%s]的值:%s未在%s中对应位置找到\n' % (self.standard, xpath, i, json1[i], self.standard1))
         if isinstance(json1, dict) and isinstance(json2, dict):
             for i in json1:
                 try:
                     json2[i]
                 except:
-                    L.append('%s中的key：%s未在json2中对应位置找到\n' % (xpath, i))
+                    print json1
+                    L.append('%s中%s的key：%s未在%s中对应位置找到\n' % (self.standard, xpath, i, self.standard1))
                     continue
                 if not (isinstance(json1.get(i), (list, dict)) or isinstance(json2.get(i), (list, dict))):
                     if type(json1.get(i)) != type(json2.get(i)):
-                        L.append('json1、json2中存在类型不同的参数:  %s["%s"]  ===> json1 is %s, json2 is %s \n' % (
-                            xpath, i, type(json1.get(i)), type(json2.get(i))))
+                        if self.standard == "json1":
+                            L.append('json1、json2中存在类型不同的参数:  %s["%s"]  ===> %s is %s, %s is %s \n' % (
+                            xpath, i, self.standard, type(json1.get(i)), self.standard1, type(json2.get(i))))
                     elif json1.get(i) != json2.get(i):
-                        L.append(
-                            'json1、json2中存在内容不同的参数:  %s["%s"]  ===> json1 is %s, json2 is %s \n' % (xpath, i, json1.get(i), json2.get(i)))
+                        if self.standard == "json1":
+                            L.append(
+                            'json1、json2中存在内容不同的参数:  %s["%s"]  ===> %s is %s, %s is %s \n' % (
+                                xpath, i, self.standard, json1.get(i), self.standard1, json2.get(i)))
                     continue
                 self.compareJsonData(json1.get(i), json2.get(i), L, xpath + '["%s"]' % str(i))
             return
         if type(json1) != type(json2):
-            L.append('json1、json2中存在类型不同的参数:  %s  ===> json1 is %s, json2 is %s \n' % (xpath, type(json1), type(json2)))
+            if self.standard == "json1":
+                L.append('json1、json2中存在类型不同的参数:  %s  ===> %s is %s, %s is %s \n' % (
+                xpath, self.standard, type(json1), self.standard1, type(json2)))
         elif json1 != json2 and type(json1) is not list:
-            L.append('json1、json2中存在内容不同的参数:  %s  ===> json1 is %s, json2 is %s \n' % (xpath, json1, json2))
+            if self.standard == "json1":
+                L.append('json1、json2中存在内容不同的参数:  %s  ===> %s is %s, %s is %s \n' % (
+                xpath, self.standard, json1, self.standard1, json2))
         return L
 
     def equal(self, json1, json2):
         C = []
         self.compareJsonData(json1, json2, C)
+        self.compareJsonData(json2, json1, C, xpath="json2")
         assert len(C) == 0, "\n" + "".join(C)
 
 
 # if __name__ == '__main__':
-#     dict1 = {"name": "zhangsan", "fridents": [{"name": [1,2,3]}, {"name": "wangwu"}]}
-#     dict2 = {"name": "zhangsan", "fridents": [{"name1": [1,3,2]}, {"name": "wangwu1"}]}
-#     d1 = [1,2,3]
-#     d2 = [1,2,3]
-#     print d1 == d2
-#     # jsonAssert().equal(dict1,dict2)
-#     jsonAssert().equal(d1,d2)
+#     dict1 = {"name": "zhangsan", "fridents": [{"name": [2, 2, 3]}, {"name": "wangwu"}], "sex": 1}
+#     dict2 = {"name": "zhangsan", "fridents": [{"name": [2, 2, 3]}, {"name": "wangwu"}, 12]}
+#     d1 = [1, 2, 3]
+#     d2 = [1, 1, 3]
+#     jsonAssert().equal(dict1, dict2)
+    # jsonAssert().equal(d1, d2)
