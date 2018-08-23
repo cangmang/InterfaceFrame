@@ -62,7 +62,7 @@ class xmlprase(object):
 
 class jsonAssert:
     # 对json字符串深度断言----比较两个json字符串是否完全相同，并返回不相同的部分
-    def compareJsonData(self, json1, json2, L=[], xpath='json1'):
+    def __compareJsonData(self, json1, json2, L=[], xpath='json1'):
         if xpath == "json1":
             self.standard = "json1"
             self.standard1 = "json2"
@@ -72,7 +72,7 @@ class jsonAssert:
         if isinstance(json1, list) and isinstance(json2, list):
             for i in range(len(json1)):
                 try:
-                    self.compareJsonData(json1[i], json2[i], L, xpath + '[%s]' % str(i))
+                    self.__compareJsonData(json1[i], json2[i], L, xpath + '[%s]' % str(i))
                 except:
                     L.append('%s中%s[%s]的值:%s未在%s中对应位置找到\n' % (self.standard, xpath, i, json1[i], self.standard1))
         if isinstance(json1, dict) and isinstance(json2, dict):
@@ -94,7 +94,7 @@ class jsonAssert:
                             'json1、json2中存在内容不同的参数:  %s["%s"]  ===> %s is %s, %s is %s \n' % (
                                 xpath, i, self.standard, json1.get(i), self.standard1, json2.get(i)))
                     continue
-                self.compareJsonData(json1.get(i), json2.get(i), L, xpath + '["%s"]' % str(i))
+                self.__compareJsonData(json1.get(i), json2.get(i), L, xpath + '["%s"]' % str(i))
             return
         if type(json1) != type(json2):
             if self.standard == "json1":
@@ -108,8 +108,8 @@ class jsonAssert:
 
     def equal(self, json1, json2):
         C = []
-        self.compareJsonData(json1, json2, C)
-        self.compareJsonData(json2, json1, C, xpath="json2")
+        self.__compareJsonData(json1, json2, C)
+        self.__compareJsonData(json2, json1, C, xpath="json2")
         assert len(C) == 0, "\n" + "".join(C)
 
 

@@ -40,5 +40,5 @@ class Config:
         return config.get("environment", "scene")
 
 
-if __name__ == "__main__":
-    print Config().o_config_path
+# if __name__ == "__main__":
+#     print Config().o_config_path
