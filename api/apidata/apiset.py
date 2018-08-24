@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import sys
+
 __author__ = 'xujianbo'
 __data__ = '2018-08-19'
 
@@ -21,7 +23,7 @@ class apiset:
             elif scene == 'online':
                 self.config_path = Config().o_config_path
             else:
-                assert "请指定运行环境：test or online"
+                raise "evm下scene环境配置不正确：test or online"
         else:
             self.config_path = path
         self.config = Config().getConfig(self.config_path)
