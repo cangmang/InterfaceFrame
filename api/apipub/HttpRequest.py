@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import urllib
 import sys
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 
 __author__ = 'xujianbo'
 __data__ = '2018-03-20'

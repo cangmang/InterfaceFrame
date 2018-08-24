@@ -10,7 +10,7 @@ import time
 import os
 import sys
 from api.apipub.Config import Config
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 
 from api.apipub import HTMLTestRunner
 

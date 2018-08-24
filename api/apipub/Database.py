@@ -4,7 +4,7 @@ __author__ = 'xujianbo'
 __data__ = '2018-03-20'
 """
 """
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 import pymssql
 
 import pymysql

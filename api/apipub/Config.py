@@ -11,9 +11,9 @@ class Config:
         self.root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.log_path = os.path.join(self.root_path, "logs")
         self.report_path = os.path.join(self.root_path, "TestReport")
-        self.evm_path = os.path.join(self.root_path, "api\\apidata\\evm.ini")
-        self.t_config_path = os.path.join(self.root_path, "api\\apidata\\test\\config.ini")
-        self.o_config_path = os.path.join(self.root_path, "api\\apidata\\test\\config.ini")
+        self.evm_path = os.path.join(self.root_path, "api\\apiconfig\\evm.ini")
+        self.t_config_path = os.path.join(self.root_path, "api\\apiconfig\\test\\config.ini")
+        self.o_config_path = os.path.join(self.root_path, "api\\apiconfig\\test\\config.ini")
         self.case_path = os.path.join(self.root_path, "TestCase")
 
     def getConfig(self, config_path):

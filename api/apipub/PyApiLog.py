@@ -8,7 +8,7 @@ __data__ = '2018-03-20'
 import logging
 import datetime
 import os
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 
 logLevel = {
     1: logging.NOTSET,

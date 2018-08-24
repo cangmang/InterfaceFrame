@@ -2,7 +2,7 @@
 __author__ = 'xujianbo'
 __data__ = '2018-07-18'
 
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 import redis
 
 

@@ -5,7 +5,7 @@ __date__ = '2018-08-17'
 """
 """
 import unittest
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 
 from api.apimodule.h5app.Login import Login
 from api.apipub.HttpRequest import SendHttpRequest

@@ -16,7 +16,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 
-from api.apidata.apiset import apiset
+from api.apiconfig.apiset import apiset
 from api.apipub.PyApiLog import log
 
 
