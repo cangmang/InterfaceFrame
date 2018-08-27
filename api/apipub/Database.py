@@ -85,19 +85,11 @@ class apisql(object):
                 cur.execute(sql)
                 result = cur.fetchall()
                 # return result
-                return self.convertToList(result)
+                return map(list, list(result))
         except Exception, e:
             log().error(e)
         finally:
             conn.close()
-
-    # 将查询结果转换成list
-    def convertToList(self, tuple):
-        def tuple_to_list(x):
-            return list(x)
-
-        L = list(tuple)
-        return map(list, L)
 
         # 执行sql语句返回结果
         # def execsql(sql):
@@ -107,7 +99,7 @@ class apisql(object):
         # user = config[3][1]
         # password = config[4][1]
         # database = config.get("DATABASE")
-        #     if driver == "MYSQL":
+        # if driver == "MYSQL":
         #         try:
         #             sql_result = sqldriver(
         #                 host=host,
