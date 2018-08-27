@@ -13,7 +13,7 @@ from api.apipub.PyApiLog import log
 
 
 class apisql(object):
-    def __init__(self, database, host=None, port=None, user=None, password=None):
+    def __init__(self, host=None, port=None, user=None, password=None):
         config = apiset().getConfigItems("mysql_db")
         if host == None:
             self.host = config[0][1]
@@ -31,10 +31,15 @@ class apisql(object):
             self.password = config[3][1]
         else:
             self.password = password
-        self.database = database
 
-    # 执行SQLserver查询
-    def exec_mssql(self, sql):
+    """
+    执行SQLserver查询
+    @:param database 所查询的数据库
+    @:param sql 查询语句
+    """
+
+    def execMssql(self, database, sql):
+        self.database = database
         try:
             conn = pymssql.connect(host=self.host,
                                    port=self.port,
@@ -58,8 +63,14 @@ class apisql(object):
         finally:
             conn.close()
 
-    # 执行Mysql查询
-    def exec_mysql(self, sql):
+    """
+    执行SQLserver查询
+    @:param database 所查询的数据库
+    @:param sql 查询语句
+    """
+
+    def execMysql(self, database, sql):
+        self.database = database
         try:
             conn = pymysql.connect(host=self.host,
                                    port=self.port,
@@ -73,46 +84,54 @@ class apisql(object):
                 log().info(u"执行SQL语句|%s|" % sql)
                 cur.execute(sql)
                 result = cur.fetchall()
-                return result
+                # return result
+                return self.convertToList(result)
         except Exception, e:
             log().error(e)
         finally:
             conn.close()
 
+    # 将查询结果转换成list
+    def convertToList(self, tuple):
+        def tuple_to_list(x):
+            return list(x)
 
-            # 执行sql语句返回结果
-            # def execsql(sql):
-            # config = apiset().getConfigItems("mysql_db")
-            # host = config[1][1]
-            # port = config[2][1]
-            #     user = config[3][1]
-            #     password = config[4][1]
-            #     database = config.get("DATABASE")
-            #     if driver == "MYSQL":
-            #         try:
-            #             sql_result = sqldriver(
-            #                 host=host,
-            #                 port=port,
-            #                 user=user,
-            #                 password=password,
-            #                 database=database
-            #             ).exec_mysql(sql)
-            #             return sql_result
-            #         except Exception, e:
-            #             log().error(e)
-            #
-            #     elif driver == "MSSQL":
-            #         try:
-            #             sql_result = sqldriver(
-            #                 host=host,
-            #                 port=port,
-            #                 user=user,
-            #                 password=password,
-            #                 database=database
-            #             ).exec_mssql(sql)
-            #             return sql_result
-            #         except Exception, e:
-            #             log().error(e)
-            #
-            #     else:
-            #         log().error(u"[%s]数据库配置支持MYSQL、MSSQL、ORACLE" % driver)
+        L = list(tuple)
+        return map(list, L)
+
+        # 执行sql语句返回结果
+        # def execsql(sql):
+        # config = apiset().getConfigItems("mysql_db")
+        # host = config[1][1]
+        # port = config[2][1]
+        # user = config[3][1]
+        # password = config[4][1]
+        # database = config.get("DATABASE")
+        #     if driver == "MYSQL":
+        #         try:
+        #             sql_result = sqldriver(
+        #                 host=host,
+        #                 port=port,
+        #                 user=user,
+        #                 password=password,
+        #                 database=database
+        #             ).exec_mysql(sql)
+        #             return sql_result
+        #         except Exception, e:
+        #             log().error(e)
+        #
+        #     elif driver == "MSSQL":
+        #         try:
+        #             sql_result = sqldriver(
+        #                 host=host,
+        #                 port=port,
+        #                 user=user,
+        #                 password=password,
+        #                 database=database
+        #             ).exec_mssql(sql)
+        #             return sql_result
+        #         except Exception, e:
+        #             log().error(e)
+        #
+        #     else:
+        #         log().error(u"[%s]数据库配置支持MYSQL、MSSQL、ORACLE" % driver)

@@ -9,6 +9,7 @@ from api.apiconfig.apiset import apiset
 
 from api.apimodule.h5app.Login import Login
 from api.apipub.HttpRequest import SendHttpRequest
+from api.apipub.Database import apisql
 
 
 class testClass(unittest.TestCase):
@@ -31,6 +32,11 @@ class testClass(unittest.TestCase):
         }
         response = SendHttpRequest().get("http://h5app.wx.pxsj.com/api/shop/getShopInfo", headers=headers)
         self.assertEqual(response.get("code"), "20000000", response.get("msg"))
+
+    def testMysql(self):
+        sql = "SELECT t_d_user_vcity.*,t_d_user_shop.shop_id FROM t_d_user_vcity,t_d_user_shop WHERE t_d_user_vcity.user_id = t_d_user_shop.user_id"
+        sql1 = "SELECT * FROM  t_d_user_shop"
+        print apisql().execMysql("vcity_user", sql1)
 
 
 if __name__ == '__main__':
