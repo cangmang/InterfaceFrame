@@ -13,7 +13,7 @@ class Login:
             "password": password
         }
 
-        url = "http://h5app.wx.pxsj.com/api/shop/getToken"
+        url = "xxxxxxx"
         self.response = SendHttpRequest().postByData(url=url, value=value)
 
     # 登录获取token
