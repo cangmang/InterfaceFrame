@@ -15,7 +15,7 @@ from api.apipub.Database import apisql
 class testClass(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login = Login("18280372006", "e4c0884a449ef1bdc50c69a42b173779")
+        cls.login = Login("", "")
         cls.token = cls.login.getToken()
         cls.shopId = cls.login.getShopId()
         cls.version_name = apiset().getConfigValues("version", "version_name")
@@ -30,7 +30,7 @@ class testClass(unittest.TestCase):
             "token": self.token,
             "shopId": "shopId"
         }
-        response = SendHttpRequest().get("http://h5app.wx.pxsj.com/api/shop/getShopInfo", headers=headers)
+        response = SendHttpRequest().get("", headers=headers)
         self.assertEqual(response.get("code"), "20000000", response.get("msg"))
 
     def testMysql(self):
