@@ -1,0 +1,5 @@
+2018-08-27 10:45:50,234 HttpRequest.py[line:66] INFO 发送post请求: http://h5app.wx.pxsj.com/api/shop/getToken  服务器返回:  200
+2018-08-27 10:45:50,246 connectionpool.py[line:205] DEBUG Starting new HTTP connection (1): h5app.wx.pxsj.com:80
+2018-08-27 10:45:50,371 connectionpool.py[line:393] DEBUG http://h5app.wx.pxsj.com:80 "GET /api/shop/getShopInfo HTTP/1.1" 200 569
+2018-08-27 10:45:50,378 HttpRequest.py[line:81] INFO 发送get请求: http://h5app.wx.pxsj.com/api/shop/getShopInfo   服务器返回:  200
+2018-08-27 10:45:50,392 Database.py[line:80] ERROR (1045, u"Access denied for user 'XXXX'@'192.168.10.147' (using password: YES)")

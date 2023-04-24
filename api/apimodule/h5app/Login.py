@@ -13,19 +13,19 @@ class Login:
             "password": password
         }
 
-        url = "http://h5app.wx.pxsj.com/api/shop/getToken"
+        url = ""
         self.response = SendHttpRequest().postByData(url=url, value=value)
 
     # 登录获取token
     def getToken(self):
         try:
             return self.response.get("response").get("token")
-        except Exception, e:
+        except Exception as e:
             return e.message + self.response.get("msg")
 
     # 获取shopId
     def getShopId(self):
         try:
             return self.response.get("response").get("shopId")
-        except Exception, e:
+        except Exception as e:
             return e.message + self.response.get("msg")

@@ -4,6 +4,7 @@ __data__ = '2018-08-19'
 
 import os
 import configparser
+import sys
 
 
 class Config:
@@ -11,9 +12,15 @@ class Config:
         self.root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.log_path = os.path.join(self.root_path, "logs")
         self.report_path = os.path.join(self.root_path, "TestReport")
-        self.evm_path = os.path.join(self.root_path, "api\\apiconfig\\evm.ini")
-        self.t_config_path = os.path.join(self.root_path, "api\\apiconfig\\test\\config.ini")
-        self.o_config_path = os.path.join(self.root_path, "api\\apiconfig\\test\\config.ini")
+        type = sys.platform
+        if type == "win32":
+            self.evm_path = os.path.join(self.root_path, "api\\apiconfig\\evm.ini")
+            self.t_config_path = os.path.join(self.root_path, "api\\apiconfig\\test\\config.ini")
+            self.o_config_path = os.path.join(self.root_path, "api\\apiconfig\\test\\config.ini")
+        else:
+            self.evm_path = os.path.join(self.root_path, "api/apiconfig/evm.ini")
+            self.t_config_path = os.path.join(self.root_path, "api/apiconfig/test/config.ini")
+            self.o_config_path = os.path.join(self.root_path, "api/apiconfig/test/config.ini")
         self.case_path = os.path.join(self.root_path, "TestCase")
 
     def getConfig(self, config_path):

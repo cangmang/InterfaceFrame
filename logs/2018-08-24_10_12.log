@@ -1,0 +1,4 @@
+2018-08-24 10:12:45,530 HttpRequest.py[line:50] INFO 发送post请求: http://192.168.31.233:8010/noauth/merchant/v2/login  服务器返回:  200
+2018-08-24 10:12:45,536 connectionpool.py[line:205] DEBUG Starting new HTTP connection (1): 127.0.0.1:8888
+2018-08-24 10:12:45,569 connectionpool.py[line:393] DEBUG http://127.0.0.1:8888 "GET http://192.168.31.233:8010/auth/merchant/v2/shop/getShopBizCategoryListByShopId?token=547a26377921eb2cbd36406678fadf2182bed962f2ed2a&shopId=2110037549811504 HTTP/1.1" 200 319
+2018-08-24 10:12:45,572 HttpRequest.py[line:81] INFO 发送get请求: http://192.168.31.233:8010/auth/merchant/v2/shop/getShopBizCategoryListByShopId?token=547a26377921eb2cbd36406678fadf2182bed962f2ed2a&shopId=2110037549811504   服务器返回:  200

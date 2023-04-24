@@ -1,0 +1,2 @@
+2018-09-12 17:04:08,438 HttpRequest.py[line:81] INFO 发送get请求: http://www.icoolxue.com/play/4867   服务器返回:  200
+2018-09-12 17:04:41,931 HttpRequest.py[line:81] INFO 发送get请求: http://www.icoolxue.com/play/4867   服务器返回:  200

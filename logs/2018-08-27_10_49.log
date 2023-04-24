@@ -1,0 +1,2 @@
+2018-08-27 10:49:15,713 HttpRequest.py[line:66] INFO 发送post请求: http://h5app.wx.pxsj.com/api/shop/getToken  服务器返回:  200
+2018-08-27 10:49:15,732 Database.py[line:73] INFO 执行SQL语句|SELECT * FROM  t_d_user_shop|

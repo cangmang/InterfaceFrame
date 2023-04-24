@@ -58,7 +58,7 @@ class apisql(object):
             else:
                 log().error(u"数据库连接不成功")
             conn.close()
-        except Exception, e:
+        except Exception as e:
             log().error(e.message)
         finally:
             conn.close()
@@ -79,14 +79,14 @@ class apisql(object):
                                    db=self.database,
                                    )
             cur = conn.cursor()
-            print cur
+            print (cur)
             if cur:
                 log().info(u"执行SQL语句|%s|" % sql)
                 cur.execute(sql)
                 result = cur.fetchall()
                 # return result
                 return map(list, list(result))
-        except Exception, e:
+        except Exception as e:
             log().error(e)
         finally:
             conn.close()

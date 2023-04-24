@@ -1,0 +1,4 @@
+2018-08-27 11:08:03,207 HttpRequest.py[line:66] INFO 发送post请求: http://h5app.wx.pxsj.com/api/shop/getToken  服务器返回:  200
+2018-08-27 11:08:03,226 Database.py[line:90] ERROR (1045, u"Access denied for user 'XXXX'@'192.168.10.147' (using password: YES)")
+2018-08-27 11:08:23,243 HttpRequest.py[line:66] INFO 发送post请求: http://h5app.wx.pxsj.com/api/shop/getToken  服务器返回:  200
+2018-08-27 11:08:23,262 Database.py[line:84] INFO 执行SQL语句|SELECT * FROM  t_d_user_shop|

@@ -37,13 +37,13 @@ class Report:
             filename = os.path.join(file_path,
                                     (time.strftime('%Y-%m-%d %H_%M_%S', time.localtime(time.time())) + '.html'))
 
-        fp = file(filename, 'wb')
+        fp = open(filename, 'wb')
         runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=Report_title,
                                                description=Report_description
                                                )
         try:
             runner.run(discover)
-        except Exception, e:
+        except Exception as e:
             raise Exception(e.message)
         finally:
             fp.close()
@@ -57,7 +57,7 @@ if __name__ == "__main__":
             Config().setScene(tag)
             Report().startAllCase()
         else:
-            print u"请指定正确的运行环境：test or online"
+            print (u"请指定正确的运行环境：test or online")
     except:
         # 没指定任何环境时默认在测试环境执行
         tag = "test"

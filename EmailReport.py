@@ -35,7 +35,7 @@ def sortReportFile(report_path):
             new_report = os.path.join(path, lists[-1])
             new_report_list.append(new_report)
         return new_report_list
-    except IndexError, e:
+    except IndexError as e:
         log().info("sort_report_file - There are no reports to send:")
         log().error(e)
 
@@ -76,13 +76,13 @@ def sendEmail():
         msg.attach(body)
         smtp = smtplib.SMTP()
         smtp.connect("smtp.163.com")
-        print smtp
+        print (smtp)
         try:
             smtp.login(mail_user, mail_pwd)
             smtp.sendmail(mail_user, email_to, msg.as_string())
-            print 'email has send out !'
-        except smtplib.SMTPAuthenticationError,e:
-            print e
+            print ('email has send out !')
+        except smtplib.SMTPAuthenticationError as e:
+            print (e)
         smtp.quit()
 
 
@@ -93,7 +93,7 @@ if __name__ == "__main__":
             Config().setScene(tag)
             sendEmail()
         else:
-            print u"请指定正确的运行环境：test or online"
+            print (u"请指定正确的运行环境：test or online")
     except:
         # 没指定任何环境时默认在测试环境执行
         tag = "test"
