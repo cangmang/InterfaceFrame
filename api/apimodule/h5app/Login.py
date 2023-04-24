@@ -27,5 +27,10 @@ class Login:
     def getShopId(self):
         try:
             return self.response.get("response").get("shopId")
+<<<<<<< HEAD
         except Exception as e:
             return e.message + self.response.get("msg")
+=======
+        except Exception, e:
+            return e.message + self.response.get("msg")
+>>>>>>> a29f1cf8174034e04410b6becdb8d006f509f84d

@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbac4c1b-484e-4796-88b2-202c88d0e269" name="Default" comment="修改Database.py将数据库查询结果转换成list">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/apimodule/merchant/Login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/apimodule/merchant/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmailReport.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmailReport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report.py" beforeDir="false" afterPath="$PROJECT_DIR$/Report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCase/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCase/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/apiconfig/test/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/api/apiconfig/test/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/apimodule/h5app/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/apimodule/h5app/Login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/apipub/Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/apipub/Config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/apipub/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/apipub/Database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/apipub/HttpRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/apipub/HttpRequest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +58,14 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -274,6 +270,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -557,7 +554,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534725814168</updated>
-      <workItem from="1682315140001" duration="3185000" />
+      <workItem from="1682315140001" duration="3534000" />
     </task>
     <task id="LOCAL-00001" summary="完善框架">
       <created>1534729240342</created>
