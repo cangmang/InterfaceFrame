@@ -13,7 +13,11 @@ class Login:
             "password": password
         }
 
+<<<<<<< HEAD
         url = ""
+=======
+        url = "xxxxxxx"
+>>>>>>> 7079ade3dbe98d4c363a05beaf05a3521aabc5d5
         self.response = SendHttpRequest().postByData(url=url, value=value)
 
     # 登录获取token
@@ -33,4 +37,7 @@ class Login:
 =======
         except Exception, e:
             return e.message + self.response.get("msg")
+<<<<<<< HEAD
 >>>>>>> a29f1cf8174034e04410b6becdb8d006f509f84d
+=======
+>>>>>>> 7079ade3dbe98d4c363a05beaf05a3521aabc5d5
